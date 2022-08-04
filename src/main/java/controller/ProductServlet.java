@@ -70,7 +70,7 @@ public class ProductServlet extends HttpServlet {
             }
         }
         request.setAttribute("products", productsOfSearch);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -91,7 +91,7 @@ public class ProductServlet extends HttpServlet {
         Product product = new Product(id_product, name, price, quantity, color, description);
         boolean check = productService.editProduct(product, id_category);
         request.setAttribute("check", check);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("edit_product.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("edit_Product.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -108,7 +108,7 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("id_category", id_category);
         request.setAttribute("productEdit", productEdit);
         request.setAttribute("categories", categories);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("edit_product.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("edit_Product.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -122,21 +122,21 @@ public class ProductServlet extends HttpServlet {
         Product product = new Product(name, price, quantity, color, description);
         boolean check = productService.createProduct(product, id_category);
         request.setAttribute("check", check);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("create_product.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("create_Product.jsp");
         requestDispatcher.forward(request, response);
     }
 
     private void createGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Category> categories = productService.getCategories();
         request.setAttribute("categories", categories);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("create_product.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("create_Product.jsp");
         requestDispatcher.forward(request, response);
     }
 
     private void displayAllProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Product> products = productService.getProducts();
         request.setAttribute("products", products);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
         requestDispatcher.forward(request, response);
     }
 }
