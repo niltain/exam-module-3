@@ -18,14 +18,15 @@
 </head>
 <body>
 <div class="col-lg-9 col-md-8">
-    <h3 class="display-4">Add New Product</h3>
+
     <div class="card">
 
-        <div class="card-body row">
-            <form action="/product?action=createPost" method="post">
-                <table border="1" cellpadding="5">
+        <div class="edit_form"  id ="form_edit">
+            <h1 >Add New Product</h1>
+            <form action="/product?action=createPost" method="post" class="form">
+                <table border="1" cellpadding="5" class="form-group">
                     <tr>
-                        <th>Name:</th>
+                        <th class="control-label">Name:</th>
                         <td>
                             <input type="text" name="name" size="100"/>
                         </td>
